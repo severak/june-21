@@ -16,7 +16,7 @@
  
 <Cabbage>  
 bounds(0, 0, 0, 0)
-form caption("June 21"), size(800, 650), colour(26,26,26), pluginid("June-21") bundle("./imgs", "./presets","./libjsl.so", "libjsl.dll","june-21.txt")
+form caption("June 21"), size(800, 650), colour(26,26,26), pluginid("June-21") bundle("./imgs", "./presets","june-21.txt")
 
 keyboard bounds(148, 462, 579, 122)  
 
@@ -261,7 +261,7 @@ label bounds(404, 20, 50, 12) text("light") align("right")
 </Cabbage>
 <CsoundSynthesizer>
 <CsOptions>
--n -d -+rtmidi=NULL -M0 -m0d --midi-key-cps=4 --midi-velocity-amp=5 --midi-velocity=6  --opcode-lib=./libjsl.so  ; OSX: libjsl.dylib; Windows: libjsl.dll
+-n -d -+rtmidi=NULL -M0 -m0d --midi-key-cps=4 --midi-velocity-amp=5 --midi-velocity=6
 </CsOptions>
 <CsInstruments>
 
@@ -864,7 +864,9 @@ instr updateGUI
    endif
 endin
 
+
 instr 1004
+
     SName  = "                                                    "
     iIdent = 1
     gicurprog = 0
@@ -913,8 +915,8 @@ instr 1004
 
     //printf_i "Current prog : %d\n", 1, gicurprog
     
-    
-    SName getjuname gScurbank,gicurprog  ,iBank  ; use of plugins to get the tone name from the midi bulk dump from synth
+    Sname = "preset"
+    //SName getjuname gScurbank,gicurprog  ,iBank  ; use of plugins to get the tone name from the midi bulk dump from synth
 
     iLid chnget "lid"
     iLid = iLid * 0.7
@@ -939,7 +941,7 @@ instr 1004
     loop_le iIdent, 1, strlen(SName), label3
    
    
-   
+    /*
     iParm  getjuparm gScurbank, gicurprog, "dcoaftr"
     chnset iParm, "dcoaftr"
     iParm  getjuparm gScurbank, gicurprog, "vcfkybd"
@@ -1018,7 +1020,7 @@ instr 1004
     chnset iParm, "noislvl"
     iParm  getjuparm gScurbank, gicurprog, "crsrate"
     chnset iParm, "crsrate"
-    
+    */
         
     
 end2:    
